@@ -59,10 +59,17 @@ async function updateSidebarImages(method, selectedDate) {
     let currentImages = sidebarImagesContainer.querySelectorAll('.image-container');
     let imageCount = 0;
 
-    for (let i = 0; i <= 14; i++) {
-        const pastDate = new Date(currentDate);
-        pastDate.setDate(currentDate.getDate() - i); // Go back i days
-        const pastDateStr = pastDate.toISOString().slice(0, 10); // Format past date (YYYY-MM-DD)
+    for (let i = -1; i <= 14; i++) {
+        // Get date, or latest for first one
+        let pastDate;
+        let pastDateStr;
+        if (i == -1) {
+            pastDateStr = "latest"
+        } else {
+            pastDate = new Date(currentDate);
+            pastDate.setDate(currentDate.getDate() - i); // Go back i days
+            pastDateStr = pastDate.toISOString().slice(0, 10); // Format past date (YYYY-MM-DD)
+        }
 
         const imageUrl = `Images/${method}-${pastDateStr}.png`;
 
@@ -86,7 +93,13 @@ async function updateSidebarImages(method, selectedDate) {
                 dateLabel.classList.add('date-label');
                 imageContainer.appendChild(dateLabel);
             }
-            dateLabel.textContent = `${days} days ago`;
+
+            if (pastDateStr == "latest") {
+                dateLabel.textContent = `Latest`;
+            }
+            else {
+                dateLabel.textContent = `${days} days ago`;
+            }
 
             // Create image element
             let imgElement = imageContainer.querySelector('img');
