@@ -12,6 +12,16 @@ function capitalize(str) {
     return str
 }
 
+function getMinuteTimestamp() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    const hour = String(now.getHours()).padStart(2, '0');
+    const minute = String(now.getMinutes()).padStart(2, '0');
+    return `${year}${month}${day}${hour}${minute}`;
+}
+
 // Function to change the main image based on the selected stats method
 function changeImage(method, date = selectedDate) {
     // Save in URL
@@ -21,7 +31,8 @@ function changeImage(method, date = selectedDate) {
     selectedMethod = method;
     selectedDate = date;
 
-    const imagePath = `Images/${method}-${date}.png`;
+    let imagePath = `Images/${method}-${date}.png`;
+    if (date == "latest") imagePath += "?"+getMinuteTimestamp(); // Avoid caching latest images
     document.getElementById("main-image").src = imagePath;
 
     // Update the label to reflect the image date
