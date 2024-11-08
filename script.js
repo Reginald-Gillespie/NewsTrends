@@ -14,6 +14,7 @@ function capitalize(str) {
 
 // Function to change the main image based on the selected stats method
 function changeImage(method, date = selectedDate) {
+
     // Update the current method and date
     selectedMethod = method;
     selectedDate = date;
