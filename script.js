@@ -14,6 +14,8 @@ function capitalize(str) {
 
 // Function to change the main image based on the selected stats method
 function changeImage(method, date = selectedDate) {
+    // Save in URL
+    window.location.href = window.location.href.split("#")[0] + `#${method}+${date}`
 
     // Update the current method and date
     selectedMethod = method;
@@ -119,5 +121,8 @@ async function updateSidebarImages(method, selectedDate) {
 
 // Initialize with Stats Method "frequency" and the "latest" image when the page loads
 window.onload = () => {
-    changeImage('frequency'); // Default image when the page loads
+    let selectedData = window.location?.href?.split("#")?.[1]?.split("+").slice(0, 2);
+
+    if (selectedData) changeImage(...selectedData);
+    else changeImage("frequency", "latest"); // Default image when the page loads
 };
