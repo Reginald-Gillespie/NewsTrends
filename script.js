@@ -1,4 +1,3 @@
-// Array containing the different methods of stats images
 const methods = ['frequency', 'velocity'];
 const currentDate = new Date();
 const today = currentDate.toISOString().slice(0, 10); // Format current date (YYYY-MM-DD)
@@ -82,7 +81,8 @@ async function updateSidebarImages(method, selectedDate) {
             pastDateStr = pastDate.toISOString().slice(0, 10); // Format past date (YYYY-MM-DD)
         }
 
-        const imageUrl = `Images/${method}-${pastDateStr}.png`;
+        let imageUrl = `Images/${method}-${pastDateStr}.png`;
+        if (pastDateStr == "latest") imageUrl += "?"+getMinuteTimestamp();
 
         // Check if the image exists before adding to sidebar
         const exists = await imageExists(imageUrl);
@@ -116,12 +116,13 @@ async function updateSidebarImages(method, selectedDate) {
             let imgElement = imageContainer.querySelector('img');
             if (!imgElement) {
                 imgElement = document.createElement('img');
-                imgElement.onclick = () => {
-                    // Change the main image to the clicked sidebar image
-                    changeImage(method, pastDateStr);
-                };
                 imageContainer.appendChild(imgElement);
             }
+            // Reregister click method with new params
+            imgElement.onclick = () => {
+                // Change the main image to the clicked sidebar image
+                changeImage(method, pastDateStr);
+            };
             imgElement.src = imageUrl;
             imgElement.alt = `Stats from ${pastDateStr}`;
 
