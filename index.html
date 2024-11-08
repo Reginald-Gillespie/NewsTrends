@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Trends</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar for past week images -->
+        <div class="sidebar">
+            <h2>Older</h2>
+            <div class="sidebar-images">
+                <!-- Sidebar images will be loaded dynamically -->
+            </div>
+        </div>
+
+        <div class="main-content">
+            <!-- Buttons to select stats method -->
+            <div class="button-container">
+                <button onclick="changeImage('frequency')">Frequency</button>
+                <button onclick="changeImage('velocity')">Velocity</button>
+            </div>
+
+            <!-- Main Image Display -->
+            <div class="main-image">
+                <img id="main-image" src="Images/latest.png" alt="Stats Image">
+            </div>
+
+            <!-- Image label (shows current image date or "Latest") -->
+            <div id="image-label" class="image-label">Latest</div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

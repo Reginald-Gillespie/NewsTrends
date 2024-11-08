@@ -1,0 +1,143 @@
+/* Body and Container */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Vertically center the content */
+    height: 100vh; /* Make container take full height of the viewport */
+    gap: 20px;
+}
+
+/* Sidebar for past images */
+.sidebar {
+    width: 250px;
+    height: 80vh; /* Fixed height for the sidebar */
+    margin-right: 20px;
+    background-color: #e9ecef;
+    padding: 15px;
+    border-radius: 8px;
+    overflow-y: auto; /* Enables scrolling when content overflows */
+    box-sizing: border-box; /* Ensure padding is included in the width and height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center the images */
+}
+
+.sidebar h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 10%;
+    font-weight: bold;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 5px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #97e2aa;
+    border-radius: 10px;
+}
+
+.sidebar-images {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-right: 10px; /* Add margin between the images and scrollbar */
+    overflow-y: auto;
+    max-height: 100%; /* Make sure the images do not exceed sidebar height */
+}
+
+.sidebar-images img {
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 5%;
+    box-sizing: border-box; /* Include the border in the image's size */
+}
+
+.sidebar-images img:hover {
+    opacity: 0.8;
+}
+
+/* Date label styling */
+.date-label {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+/* Image label styling */
+.image-label {
+    font-size: 1.2rem;
+    color: #333;
+    margin-top: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Main content (buttons and image) */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.button-container {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+button {
+    background-color: #28a745;  /* Green background */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #218838;  /* Darker green when hovered */
+}
+
+/* Main Image */
+.main-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.main-image img {
+    max-width: 90%;
+    max-height: 80vh;  /* Make sure the image doesn't overflow */
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
