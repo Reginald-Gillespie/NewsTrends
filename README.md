@@ -20,7 +20,14 @@ decayed_frequency = old_frequency * math.exp(-DECAY_CONSTANT * time_diff)
 
 ## Velocity
 Velocity is the change in frequency. This one is a little more jank, such as basing it off of the time the articles are fetched, rather than based off the release date of the article itself:
-```
+```python
 velocity = (decayed_frequency + count - old_frequency) / time_diff
 ```
 
+### TODO
+- [ ] Mobile support
+- [ ] More colors in background?
+- [ ] Stablized-velocity (slower updating per run)
+- [ ] Spread-sort (sorting by stablized-velocity/frequency but with a bias towards words seen from more outlets)
+- [ ] Improve bot avoidance and implement better parsing
+- [ ] Play with how ublock with no javascript is able to read washingtonpost, but my selenium setup can't 
