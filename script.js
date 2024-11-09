@@ -109,7 +109,7 @@ async function updateSidebarImages(method, selectedDate) {
                 dateLabel.textContent = `Latest`;
             }
             else {
-                dateLabel.textContent = `${days} days ago`;
+                dateLabel.textContent = `${days} day${days==1?"":"s"} ago`;
             }
 
             // Create image element

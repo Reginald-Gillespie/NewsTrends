@@ -20,18 +20,21 @@ body {
 
 /* Sidebar for past images */
 .sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     width: 250px;
-    height: 80vh; /* Fixed height for the sidebar */
-    margin-right: 20px;
-    background-color: #e9ecef;
+    height: 80vh;
+    margin: 0 0 0 20px;
+    background-color: #ebefea;
     padding: 15px;
     border-radius: 8px;
     overflow-y: auto; /* Enables scrolling when content overflows */
     box-sizing: border-box; /* Ensure padding is included in the width and height */
-    display: flex;
     flex-direction: column;
-    justify-content: center; /* Vertically center the images */
+    outline: 1px solid rgba(0, 128, 0, 0.3);
 }
+
 
 .sidebar h2 {
     text-align: center;
